@@ -1,9 +1,11 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+### HARDWARE REQUIRED: 
+ – PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:  
+ Quartus prime
 ### THEORY 
-
 ## UP COUNTER 
 The counter is a digital sequential circuit and here it is a 4 bit counter, which simply means it can count from 0 to 15 and vice versa based upon the direction of counting (up/down). 
 
@@ -46,43 +48,75 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+### Step 1:
+Create a new file in quartus II.
 
+### Step 2:
+Module Declaration. Module should have the file name.
 
+### Step 3:
+Use begin declaration to define the functionality of logic circuits.
 
-### PROGRAM 
+### Step 4:
+Within begin use if and else statements.
+
+### Step 5:
+At the end give endmodule.
+
+### Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+
+### PROGRAM FOR UPCOUNTER
+```
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: suwetha.M
+RegisterNumber:  212221230112
+*/
+module up(input CLK,input reset,output[0:3]counter);
+reg[0:3]counter_up;
+always@(posedge CLK or posedge reset)
+begin 
+if(reset)
+counter_up<=4'd0;
+else
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+```
+### PROGRAM FOR DOWNCOUNTER 
+```
+/*
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: suwetha.M
+RegisterNumber:  212221230112
 */
 
-
-
-
-
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
+module dc(input CLK,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge CLK or posedge reset)
+begin 
+if(reset)
+counter_down<=4'd0;
+else
+counter_down<=counter_down -4'd1;
+end
+assign counter=counter_down;
+endmodule
+``` 
+ ### RTL LOGIC UP COUNTER
+![output](./up.png)
+### RTL LOGIC  DOWN COUNTER
+![output](./dc.png)
+### TIMING DIGRAMS FOR UPCOUNTER  
+![output](./upwaveform.png)
+### TIMING DIGRAMS FOR DOWNCOUNTER 
+![output](./dcwaveform.png)
+### TRUTH TABLE UPCOUNTER
+![output](./upt.png)
+### TRUTH TABLE DOWNCOUNTER
+![output](./downt.png)
 
 ### RESULTS 
+The 4 bit up and down counters has been implemented and validated the functionality.
